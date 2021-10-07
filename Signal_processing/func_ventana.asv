@@ -1,0 +1,34 @@
+%FUNCIONES DE FILTRO VENTANA
+
+N=161;
+for (n=1:N)
+    %%Han
+    w1(n)= (1/2) -(1/2)*cos((2*pi*(n-1))/(N-1));
+    %%Hamming 
+    w2(n)= (0.53846) - (0.46164)*cos(2*pi*(n-1)/(N-1));
+    %%Blackman
+    w3(n)= (0.42) - (0.5)*cos(2*pi*(n-1)/(N-1)) + (0.08)*coscos(4*pi*(n-1)/(N-1));
+    %%Barlett
+    w4(n)= (1) - abs((2*(n-1)/(N-1))-1);
+end
+
+figure();
+subplot(2,2,1);
+plot(w1,'-r')
+title('FUNCIÓN HAN');
+grid on
+
+subplot(2,2,2);
+plot(w2,'-r')
+title('FUNCIÓN HAMMING');
+grid on
+
+subplot(2,2,3);
+plot(w3,'-r')
+title('FUNCIÓN BLACKMAN');
+grid on
+
+subplot(2,2,4);
+plot(w4,'-r')
+title('FUNCIÓN BARLETT');
+grid on
